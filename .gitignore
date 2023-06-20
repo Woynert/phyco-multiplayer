@@ -5,6 +5,9 @@
 *.sconsign.dblite
 *.os
 
+# clangd
+*compile_commands.json
+
 # --- cpp ---
 
 # compiled object files
