@@ -1,0 +1,34 @@
+# godot
+*.godot/
+
+# scons
+*.sconsign.dblite
+*.os
+
+# --- cpp ---
+
+# compiled object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# precompiled headers
+*.gch
+*.pch
+
+# compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# compiled static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# executables
+*.exe
+*.exe.stackdump
+*.out
