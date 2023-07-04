@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://lrgthd8clccu"]
+
+[ext_resource type="Script" path="res://entities/debug_player_input.gd" id="1_dch0x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alxp3"]
+radius = 15.0
+height = 64.0
+
+[node name="player" type="RigidBody2D" groups=["sync_state"]]
+continuous_cd = 2
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_dch0x")
+metadata/object_type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_alxp3")
+
+[node name="Observer" type="Observer" parent="."]

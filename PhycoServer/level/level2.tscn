@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnp2ktqljyvcv"]
+
+[ext_resource type="PackedScene" uid="uid://lrgthd8clccu" path="res://entities/player.tscn" id="1_vxqg6"]
+[ext_resource type="PackedScene" uid="uid://dccsjvbgrg6hr" path="res://entities/cubi.tscn" id="2_irwj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8yv"]
+size = Vector2(198, 484)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f20ru"]
+size = Vector2(32, 1510)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7um5"]
+radius = 118.068
+
+[node name="level" type="Node2D"]
+
+[node name="static" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="static"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(-66, 247)
+shape = SubResource("RectangleShape2D_0b8yv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(1623, 247)
+shape = SubResource("RectangleShape2D_0b8yv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(772, 16)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_f20ru")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(787, 304.002)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_f20ru")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(778, 468)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_f20ru")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="static/StaticBody2D"]
+position = Vector2(87, 217)
+rotation = 1.5708
+polygon = PackedVector2Array(27, 4, 36, -11, 44, -30, 51, -52, 56, -72, 64, -112, 72, -168, 72, -56, 72, 56, -112, 56, -76, 47, -48, 40, -22, 33, 0, 25, 15, 15)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="static/StaticBody2D"]
+position = Vector2(446, 372)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_n7um5")
+
+[node name="players" type="Node2D" parent="."]
+
+[node name="player" parent="players" instance=ExtResource("1_vxqg6")]
+position = Vector2(433, 192)
+
+[node name="entities" type="Node2D" parent="."]
+
+[node name="cubi" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1418, 266)
+
+[node name="cubi2" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1442, 235)
+
+[node name="cubi3" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1475, 214)
+
+[node name="cubi4" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1492, 166)
+
+[node name="cubi5" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1458, 133)
+
+[node name="cubi6" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1489, 103)
+
+[node name="cubi7" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1458, 78)
+
+[node name="cubi8" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1485, 57)
+
+[node name="cubi9" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(90, 161)
+
+[node name="cubi10" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(56, 128)
+
+[node name="cubi11" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(87, 98)
+
+[node name="cubi12" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(56, 73)
+
+[node name="cubi13" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(83, 52)
+
+[node name="cubi14" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(154, 163)
+
+[node name="cubi15" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(120, 130)
+
+[node name="cubi16" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1317, 247)
+
+[node name="cubi17" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(120, 75)
+
+[node name="cubi18" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1313, 201)
+
+[node name="cubi19" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1268, 253)
+
+[node name="cubi20" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(161, 133)
+
+[node name="cubi21" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1358, 250)
+
+[node name="cubi22" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1327, 225)
+
+[node name="cubi23" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(1354, 204)
+
+[node name="cubi24" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(828, 423)
+
+[node name="cubi25" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(824, 377)
+
+[node name="cubi26" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(779, 429)
+
+[node name="cubi27" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(869, 426)
+
+[node name="cubi28" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(838, 401)
+
+[node name="cubi29" parent="entities" instance=ExtResource("2_irwj8")]
+position = Vector2(865, 380)

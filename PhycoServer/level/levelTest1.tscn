@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://hiio0n5fmdvj"]
+
+[ext_resource type="Script" path="res://level/networkTest.gd" id="1_nf8bt"]
+
+[node name="levelTest1" type="Node2D"]
+script = ExtResource("1_nf8bt")
+
+[node name="form" type="VBoxContainer" parent="."]
+offset_left = 105.0
+offset_top = 77.0
+offset_right = 388.0
+offset_bottom = 235.0
+
+[node name="btnHost" type="Button" parent="form"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "HOSTs"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="form"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="form/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Port"
+
+[node name="numPort" type="SpinBox" parent="form/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10000.0
+value = 4444.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="form"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="form/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Address"
+
+[node name="txtAddress" type="TextEdit" parent="form/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+placeholder_text = "127.0.0.1"
+
+[node name="btnJoin" type="Button" parent="form"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "JOIN"
+
+[node name="network" type="Node" parent="."]
+
+[node name="Server" type="Server" parent="network"]
+unique_name_in_owner = true
+
+[node name="Client" type="Client" parent="network"]
+unique_name_in_owner = true
+
+[node name="level" type="Node2D" parent="."]
