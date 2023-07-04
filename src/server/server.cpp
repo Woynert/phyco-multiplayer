@@ -122,6 +122,11 @@ void Server::_process(double delta) {
 		// TODO: Check server state
 		// TODO: Send custom state to each client
 
+		Ref<StreamPeerBuffer> buff;
+		buff.instantiate();
+
+		serialize_game_state(buff, this);
+		this->send_to_all_peers(buff->get_data_array());
 
 		//send_packages();
 
