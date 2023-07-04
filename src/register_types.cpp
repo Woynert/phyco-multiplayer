@@ -5,6 +5,8 @@
 
 #include "register_types.h"
 #include "gdexample.h"
+#include "server/server.h"
+#include "client/client.h"
 
 using namespace godot;
 
@@ -14,6 +16,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     }
 
     ClassDB::register_class<GDExample>();
+    ClassDB::register_class<Server>();
+    ClassDB::register_class<Client>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
