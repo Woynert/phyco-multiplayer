@@ -10,16 +10,20 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/engine.hpp>
+#include "godot_cpp/classes/packed_scene.hpp"
 
 #include "server.h"
 #include "../packets.h"
 #include "slot_management.hpp"
 #include "../serializer.h"
+#include "../map_management.h"
 
 using namespace godot;
 
 void Server::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("start"), &Server::start);
+	ClassDB::bind_method(D_METHOD("stop"), &Server::stop);
+	ClassDB::bind_method(D_METHOD("goto_level", "p_scene"), &Server::goto_level);
     //ClassDB::bind_method(D_METHOD("get_speed"), &Server::get_speed);
     //ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &Server::set_speed);
     //ClassDB::add_property(
@@ -83,6 +87,12 @@ bool Server::stop() {
 
 	return true;
 
+}
+
+bool Server::goto_level(PackedScene* scene)
+{
+	map_instance(this, scene);
+	return true;
 }
 
 void Server::send_to_all_peers(PackedByteArray packet)

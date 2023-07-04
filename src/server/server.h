@@ -1,6 +1,7 @@
 #ifndef SERVER_H
 #define SERVER_H
 
+#include "godot_cpp/classes/packed_scene.hpp"
 #include "godot_cpp/variant/packed_byte_array.hpp"
 #include <godot_cpp/classes/e_net_connection.hpp>
 #include <godot_cpp/classes/sprite2d.hpp>
@@ -43,14 +44,13 @@ public:
     Server();
     ~Server();
 
-	// loop
     void _process(double delta) override;
 
-	// start server
 	bool start();
 
-	// stop server
 	bool stop();
+
+	bool goto_level(PackedScene* scene);
 
 	// get incoming packages
 	//void receive_packages();

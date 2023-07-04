@@ -1,6 +1,6 @@
 extends Node2D
 
-var level2 = preload("res://level/level2.tscn")
+var level2: PackedScene = preload("res://level/level2.tscn")
 
 func _ready():
 	%btnHost.connect("pressed", host)
@@ -12,6 +12,7 @@ func _ready():
 	
 func host():
 	print(%Server.start())
+	%Server.goto_level(level2)
 	
 func join():
 	%Client.address = %txtAddress.text;
