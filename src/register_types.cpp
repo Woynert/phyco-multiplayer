@@ -5,6 +5,8 @@
 
 #include "register_types.h"
 #include "gdexample.h"
+#include "packets_test.h"
+#include "server/observer.h"
 #include "server/server.h"
 #include "client/client.h"
 
@@ -16,6 +18,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     }
 
     ClassDB::register_class<GDExample>();
+    ClassDB::register_class<Observer>();
     ClassDB::register_class<Server>();
     ClassDB::register_class<Client>();
 }
