@@ -3,7 +3,7 @@ import os
 import sys
 import SCons
 
-gameDirectory = "example"
+gameDirectory = "PhycoServer"
 env = SConscript("godot-cpp/SConstruct")
 
 def GlobRecursive(pattern, node='.'):
@@ -25,6 +25,7 @@ def GlobRecursive(pattern, node='.'):
 # tweak this if you want to use different folders, or more folders, to store your source code in.
 env.Append(CPPPATH=["src/"])
 sources = GlobRecursive("*.cpp", "src/")
+# sources += (GlobRecursive("*.hpp", "src/"))
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
