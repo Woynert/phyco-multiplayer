@@ -42,6 +42,8 @@ public:
     void set_id(int p_id);
     int get_id() const;
 
+    Node* get_node();
+
 private:
     static int id_counter;
 

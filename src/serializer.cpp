@@ -2,7 +2,9 @@
 #include "godot_cpp/classes/node.hpp"
 #include "godot_cpp/classes/stream_peer_buffer.hpp"
 #include <godot_cpp/classes/input.hpp>
+#include "godot_cpp/variant/typed_array.hpp"
 #include "packets.h"
+#include "server/observer.h"
 
 using namespace godot;
 
@@ -36,7 +38,26 @@ void serialize_game_state (Ref<StreamPeerBuffer> buf, Node* serverRoot) {
     // TODO: Generalize group constant
 
     SceneTree* tree = serverRoot->get_tree();
-    TypedArray<Node> objs = tree->get_nodes_in_group("observer");
+    TypedArray<Node> obs = tree->get_nodes_in_group("observer");
+	TypedArray<Node> nodes = TypedArray<Node>();
 
-	PacketGameState::Write(buf, objs);
+	Observer* observer;
+	Node* node;
+
+	for (int i = 0; i < obs.size(); i ++)
+	{
+		observer = Object::cast_to<Observer>(obs[i]);
+		if (!observer)
+			continue;
+
+		node = Object::cast_to<Node>(observer->get_node());
+		if (!node)
+			continue;
+
+		nodes.append(node);
+	}
+
+
+
+	PacketGameState::Write(buf, nodes);
 }

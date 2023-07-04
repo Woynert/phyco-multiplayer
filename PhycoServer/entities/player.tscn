@@ -15,5 +15,3 @@ metadata/object_type = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_alxp3")
-
-[node name="Observer" type="Observer" parent="."]

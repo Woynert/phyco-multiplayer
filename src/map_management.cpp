@@ -3,6 +3,7 @@
 #include "godot_cpp/variant/typed_array.hpp"
 #include <godot_cpp/classes/packed_scene.hpp>
 
+#include "godot_cpp/variant/utility_functions.hpp"
 #include "server/observer.h"
 
 using namespace godot;
@@ -10,18 +11,30 @@ using namespace godot;
 void map_generate_prop_ids (Node* node)
 {
 	SceneTree* tree = node->get_tree();
-	TypedArray<Node> objs = tree->get_nodes_in_group("Observer");
-	Observer* o;
+    TypedArray<Node> objs = tree->get_nodes_in_group("observer");
+	//Observer* o;
 
-	for (int i = 0; i < objs.size(); i++)
+	UtilityFunctions::print("size", objs.size());
+
+
+
+	for (int i = 0; i < 2; i++)
 	{
-        o = Object::cast_to<Observer>(objs[i]);
+		UtilityFunctions::print("---");
 
-		if (o == nullptr)
+		//o = Object::cast_to<Observer>(objs[i]);
+        Observer* o = Object::cast_to<Observer>(objs[i]);
+
+		if (!o)
 			continue;
 
 		o->_set_id(i);
+
+		UtilityFunctions::print(i, " ", o->get_id(), " ", o->get_name());
+
 	}
+
+	UtilityFunctions::print("finished");
 }
 
 // instances an scene

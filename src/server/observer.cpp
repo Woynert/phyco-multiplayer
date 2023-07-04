@@ -36,10 +36,7 @@ void Observer::_bind_methods() {
 
 void Observer::_ready() 
 {
-    // add parent to observer group
-
-    auto parent = get_parent();
-    parent->add_to_group("observer");
+    add_to_group("observer");
 };
 
 void Observer::set_type(Observer::ObjectType p_type){
@@ -52,7 +49,8 @@ Observer::ObjectType Observer::get_type() const {
 
 void Observer::_set_id(int p_id) 
 {
-    id = p_id;
+    this->id = p_id;
+    UtilityFunctions::print("id", this->get_id());
 }
 
 void Observer::set_id(int p_id) 
@@ -67,5 +65,10 @@ int Observer::get_id() const
 
 // state serializers
 
+Node* Observer::get_node()
+{
+    Node* parent = get_parent();
+    return parent;
+}
 
 
