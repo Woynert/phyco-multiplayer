@@ -10,8 +10,9 @@
 
 using namespace godot;
 
+int Observer::id_counter = 0;
+
 void Observer::_bind_methods() {
-    //PropertyInfo(Variant::INT, "type", PROPERTY_HINT_RANGE, "0,20,0.01"),
 
     ClassDB::bind_method(D_METHOD("get_type"), &Observer::get_type);
     ClassDB::bind_method(D_METHOD("set_type", "type"), &Observer::set_type);
@@ -47,10 +48,14 @@ Observer::ObjectType Observer::get_type() const {
     return type;
 }
 
+void Observer::generate_id()
+{
+    this->id = ++this->id_counter;
+}
+
 void Observer::_set_id(int p_id) 
 {
     this->id = p_id;
-    UtilityFunctions::print("id", this->get_id());
 }
 
 void Observer::set_id(int p_id) 
