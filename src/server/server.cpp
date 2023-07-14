@@ -24,29 +24,13 @@ void Server::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("start"), &Server::start);
 	ClassDB::bind_method(D_METHOD("stop"), &Server::stop);
 	ClassDB::bind_method(D_METHOD("goto_level", "p_scene"), &Server::goto_level);
-    //ClassDB::bind_method(D_METHOD("get_speed"), &Server::get_speed);
-    //ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &Server::set_speed);
-    //ClassDB::add_property(
-        //"Server",
-        //PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"),
-        //"set_speed", "get_speed"
-    //);
-
-    //ADD_SIGNAL(MethodInfo("position_changed", PropertyInfo(Variant::OBJECT, "node"), PropertyInfo(Variant::VECTOR2, "new_pos")));
 }
 
 Server::Server() {
-    // Initialize any variables here
-	//conn.instantiate();
-
-
 	// initialize available slots
 
 	this->available_slots.resize(this->max_peers, true);
 	this->slots.resize(this->max_peers, nullptr);
-
-	//
-
 }
 
 Server::~Server() {
@@ -92,6 +76,9 @@ bool Server::stop() {
 bool Server::goto_level(PackedScene* scene)
 {
 	map_instance(this, scene);
+
+	map_generate_prop_ids(this);
+
 	return true;
 }
 

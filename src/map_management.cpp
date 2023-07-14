@@ -1,9 +1,10 @@
 #include "godot_cpp/classes/node.hpp"
 #include "godot_cpp/classes/scene_tree.hpp"
+#include "godot_cpp/classes/sprite2d.hpp"
 #include "godot_cpp/variant/typed_array.hpp"
 #include <godot_cpp/classes/packed_scene.hpp>
-
 #include "godot_cpp/variant/utility_functions.hpp"
+
 #include "server/observer.h"
 
 using namespace godot;
@@ -12,29 +13,24 @@ void map_generate_prop_ids (Node* node)
 {
 	SceneTree* tree = node->get_tree();
     TypedArray<Node> objs = tree->get_nodes_in_group("observer");
-	//Observer* o;
+	Observer* obs;
 
-	UtilityFunctions::print("size", objs.size());
+	UtilityFunctions::print("I: size", objs.size());
 
+	// generate ids for each observer
 
-
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < objs.size(); i++)
 	{
-		UtilityFunctions::print("---");
+        obs = Object::cast_to<Observer>(objs[i]);
 
-		//o = Object::cast_to<Observer>(objs[i]);
-        Observer* o = Object::cast_to<Observer>(objs[i]);
-
-		if (!o)
+		if (!obs){
+			UtilityFunctions::print("W: Not observer object in observer group");
 			continue;
+		}
 
-		o->_set_id(i);
-
-		UtilityFunctions::print(i, " ", o->get_id(), " ", o->get_name());
-
+		obs->generate_id();
+		UtilityFunctions::print(i, " ", obs, " ", obs->get_id(), " ", obs->get_name());
 	}
-
-	UtilityFunctions::print("finished");
 }
 
 // instances an scene
