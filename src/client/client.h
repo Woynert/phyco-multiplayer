@@ -7,12 +7,13 @@
 
 #include <godot_cpp/classes/sprite2d.hpp>
 
-namespace godot{
+namespace godot {
 
-class Client : public Node {
-    GDCLASS(Client, Node)
+class Client : public Node
+{
+	GDCLASS (Client, Node)
 
-private:
+  private:
 	Ref<ENetConnection> conn;
 	Ref<ENetPacketPeer> peer;
 
@@ -24,29 +25,29 @@ private:
 	double time_elapsed = 0;
 
 	// consume
-	void consume_package(PackedByteArray* packet);
+	void consume_package (PackedByteArray* packet);
 
-protected:
-    static void _bind_methods();
+  protected:
+	static void _bind_methods ();
 
-public:
-    Client();
-    ~Client();
+  public:
+	Client ();
+	~Client ();
 
 	// loop
-    void _process(double delta) override;
+	void _process (double delta) override;
 
 	// start client
-	bool start();
+	bool start ();
 
 	// stop client
-	bool stop();
+	bool stop ();
 
 	// get incoming packages
-	//void receive_packages();
+	// void receive_packages();
 
 	// send packages X times per second
-	void send_packages();
+	void send_packages ();
 
 	// setters / getters
 
@@ -55,9 +56,8 @@ public:
 
 	String get_address () const;
 	void set_address (const String p_address);
-
 };
 
-}
+} // namespace godot
 
 #endif

@@ -3,12 +3,11 @@
 
 #include "godot_cpp/classes/e_net_connection.hpp"
 
-enum class PlayerState 
+enum class PlayerState
 {
 	JOINING,
 	JOINED,
 };
-
 
 struct PlayerStruct
 {
@@ -16,7 +15,5 @@ struct PlayerStruct
 	PlayerState state;
 	godot::Ref<godot::ENetPacketPeer> peer;
 };
-
-
 
 #endif // !PLAYER_STRUCT_H
